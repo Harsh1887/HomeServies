@@ -1,0 +1,33 @@
+<div *ngIf="userOrders.length === 0" class="no-orders-message">
+    <br><br><br><br><br><br>
+    <p style="text-align: center; font-size: larger; font-weight: bold;">No services available.</p>
+    <br><br><br><br><br><br>
+  </div>
+  <br>
+  <div *ngFor="let order of userOrders" class="service-container">
+    <div class="service-image">
+      <img [src]="'http://localhost/api_homeservices/employee/' + getEmployeeImage(order.employee_id)" alt="Employee">
+    </div>
+  
+    <div class="service-details">
+      <ul class="service-details">
+        <li><h2>{{ getEmployeeName(order.employee_id) }}</h2></li>
+        <li class="service-title">{{ getEmployeeServiceName(order.employee_id) }}</li>
+        <li><strong>Location:</strong> {{ order.order_location }}</li>
+        <li class="service-fee"><strong>Fee:</strong> ₹{{ order.order_total_amount }}</li>
+        <li><strong>Phone:</strong> {{ getEmployeePhoneNo(order.employee_id) }}</li>
+        <li><strong>Email:</strong> {{ getEmployeeEmail(order.employee_id) }}</li>
+        <li><strong>Emp Aadhar No:</strong> {{ getEmployeeRating(order.employee_id) }}</li>
+        <li class="service-title" style="color: red; text-transform: capitalize;">Order Status: {{ order.order_status }}</li>
+  
+      
+      </ul>
+      <!-- Show bill button only for successful orders -->
+<li *ngIf="order.order_status === 'successful'">
+  <button (click)="viewBill(order.order_id)" class="bill-button">Show Bill</button>
+</li>
+
+    </div>
+  </div>
+  <br>
+  

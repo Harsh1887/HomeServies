@@ -1,0 +1,68 @@
+.tasks-container {
+  padding: 1rem;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 0.25rem;
+
+      &.accept {
+        background-color: #28a745;
+        color: white;
+      }
+
+      &.reject {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+    .complete-order {
+      background-color: #2196F3;
+      color: white;
+      font-weight: bold;
+      
+      &:hover {
+        background-color: #1976D2;
+      }
+      
+      &:disabled {
+        background-color: #B0BEC5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .no-tasks {
+    text-align: center;
+    padding: 2rem;
+    color: gray;
+  }
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

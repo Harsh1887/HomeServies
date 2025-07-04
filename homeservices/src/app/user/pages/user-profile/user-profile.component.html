@@ -1,0 +1,16 @@
+<div class="profile-container" *ngIf="currentUser; else errorTemplate">
+    <div class="profile-card">
+      <h2>User Profile</h2>
+      <div class="profile-item"><strong>Name:</strong> {{ currentUser.name }}</div>
+      <div class="profile-item"><strong>Email:</strong> {{ currentUser.email }}</div>
+      <div class="profile-item"><strong>Address:</strong> {{ currentUser.address }}</div>
+      <div class="profile-item"><strong>Phone Number:</strong> {{ currentUser.phone }}</div>
+    </div>
+  </div>
+  
+  <ng-template #errorTemplate>
+    <div class="error-message">
+      <p>{{ error }}</p>
+    </div>
+  </ng-template>
+  

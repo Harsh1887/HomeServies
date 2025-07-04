@@ -1,0 +1,146 @@
+
+  // Top strip (1-inch height)
+.top-strip {
+  background-color: #264653; // Dark teal
+  height: 1in; // 1 inch height
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+small {
+  color: #264653,
+}
+
+// Main header inside the strip
+.main-header {
+  width: 100%;
+  color: #e9c46a; // Golden color for header text
+  font-size: 50px;
+  // font-weight: bold;
+  text-align: left;
+  font-family: Freestyle Script;
+  margin-top: 15px;
+  margin-left: 0px;
+}
+
+// Navigation links directly below
+.nav-container {
+  background-color: #e9c46a; // Golden background
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.nav-links a {
+  color: black; // Black text
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav-links-admin a {
+  color: black; // Black text
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav-links-admin a:hover,
+.nav-links-admin .active {
+  color: red; // Light black on hover
+}
+
+
+.nav-links a:hover,
+.nav-links .active {
+  color: red; // Light black on hover
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .nav-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+  }
+}
+
+
+.footer {
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h4 {
+ color: #ffffff;
+}
+
+.footer-container div {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #f39c12;
+}
+
+.footer-contact p,
+.footer-social a {
+  margin: 8px 0;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: #f39c12;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+}
+
+

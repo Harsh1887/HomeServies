@@ -1,0 +1,70 @@
+<div class="bg">
+    <div class="parent">
+      <div class="child">
+        <h1>User Registration</h1>
+  
+        <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+          
+          <!-- Name Field -->
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Full Name" formControlName="name">
+            <div *ngIf="validateForm.get('name')?.invalid && validateForm.get('name')?.touched">
+              <small class="error" *ngIf="validateForm.get('name')?.errors?.['required']">Name is required</small>
+              <small class="error" *ngIf="validateForm.get('name')?.errors?.['minlength']">Minimum 3 characters required</small>
+              <small class="error" *ngIf="validateForm.get('name')?.errors?.['pattern']">Only alphabets allowed</small>
+            </div>
+          </div>
+  
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="E-mail" formControlName="email">
+            <div *ngIf="validateForm.get('email')?.invalid && validateForm.get('email')?.touched">
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['required']">Email is required</small>
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['email']">Enter a validemail</small>
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['pattern']">Enter a valid email (must contain '&#64;' and '.')</small>
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['emailTaken']">Email already exists</small>
+            </div>
+          </div>
+  
+          <!-- Phone Field -->
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Phone Number" formControlName="phone">
+            <div *ngIf="validateForm.get('phone')?.invalid && validateForm.get('phone')?.touched">
+              <small class="error" *ngIf="validateForm.get('phone')?.errors?.['required']">Phone is required</small>
+              <small class="error" *ngIf="validateForm.get('phone')?.errors?.['pattern']">Enter a valid 10-digit phone number</small>
+            </div>
+          </div>
+  
+          <!-- Address Field -->
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" placeholder="Address" formControlName="address"></textarea>
+            <div *ngIf="validateForm.get('address')?.invalid && validateForm.get('address')?.touched">
+              <small class="error" *ngIf="validateForm.get('address')?.errors?.['required']">Address is required</small>
+              <small class="error" *ngIf="validateForm.get('address')?.errors?.['minlength']">Minimum 10 characters required</small>
+            </div>
+          </div>
+  
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" formControlName="password">
+            <div *ngIf="validateForm.get('password')?.invalid && validateForm.get('password')?.touched">
+              <small class="error" *ngIf="validateForm.get('password')?.errors?.['required']"> Password is required. </small>
+              <small class="error" *ngIf="validateForm.get('password')?.errors?.['minlength']"> Minimum 6 characters required. </small>
+              <small class="error" *ngIf="validateForm.get('password')?.errors?.['pattern']"> Password must contain uppercase, lowercase, number, and special character. </small>
+            </div>
+          </div>
+  
+  
+          <button type="submit" [disabled]="validateForm.invalid">Register</button>
+          <!-- Or <a routerLink="/login">Login now!</a> -->
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

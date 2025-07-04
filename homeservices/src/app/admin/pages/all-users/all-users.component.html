@@ -1,0 +1,25 @@
+<div *ngIf="loading" class="loading-spinner">
+    Loading users...
+  </div>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="!loading && users.length > 0" class="users-list">
+    <div *ngFor="let user of users" class="flash-card">
+      <div class="card-content">
+        <h3>User-ID: {{ user.id }}</h3>
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <p><strong>Address:</strong> {{ user.address }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Show message if no users found -->
+  <div *ngIf="!loading && users.length === 0" class="no-users">
+    No users found.
+  </div>
+  

@@ -1,0 +1,59 @@
+<div class="invoice">
+    <div class="invoice-header">
+      <p class="date">Date: {{ order?.datetime_of_service_completion | date: 'dd MMMM yyyy' }}</p>
+    </div>
+  
+    <div class="section">
+      <h2>Customer Details</h2>
+      <p><strong>User ID:</strong> {{ order?.user_id }}</p>
+      <p><strong>Name:</strong> {{ currentUser?.name }}</p>
+      <p><strong>Phone:</strong> {{ currentUser?.phone }}</p>
+      <p><strong>Address:</strong> {{ currentUser?.address }}</p>
+    </div>
+  
+    <div class="section">
+      <h2>Service Details</h2>
+      <p><strong>Order ID:</strong> {{ order?.order_id }}</p>
+      <p><strong>Employee ID:</strong> {{ emp?.employee_id }}</p>
+      <p><strong>Service Date:</strong> {{ order?.service_date | date: 'dd MMMM yyyy' }}</p>
+      <p><strong>Service Time:</strong> {{ getFormattedTime() }}</p>
+      <p><strong>Booking Time:</strong> {{ order?.booking_time | date: 'dd MMMM yyyy, h:mm a' }}</p>
+      <p><strong>Order Location:</strong> {{ emp?.employee_location }}</p>
+      <p style="text-transform: capitalize;"><strong>Service Completion:</strong> {{ order?.order_status || 'N/A' }}</p>
+    </div>
+  
+    <div class="section">
+      <h2>Order Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount (INR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ emp?.employee_service_name }}</td>
+            <td>₹{{ order?.order_total_amount }}</td>
+          </tr>
+  
+          <tr class="total">
+            <td><strong>Total Amount</strong></td>
+            <td><strong>₹{{ order?.order_total_amount }}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="section">
+      <h2>Payment Details</h2>
+      <p><strong>Payment Status:</strong> Paid</p>
+      <p><strong>Transaction Mode:</strong> {{ order?.order_payment_status }}</p>
+    </div>
+  
+    <div class="section order-status">
+      <h2>Order Status</h2>
+      <p class="completed" style="text-transform: capitalize;">✔ {{ order?.order_status }}</p>
+    </div>
+  </div>
+  

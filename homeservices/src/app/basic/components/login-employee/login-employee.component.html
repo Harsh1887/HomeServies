@@ -1,0 +1,37 @@
+<div class="bg">
+    <div class="parent">
+      <div class="child">
+        <h1>Employee Login</h1>
+  
+        <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+     
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="E-mail" formControlName="employee_email">
+            <div *ngIf="validateForm.get('employee_email')?.invalid && validateForm.get('employee_email')?.touched">
+              <small class="error" *ngIf="validateForm.get('employee_email')?.errors?.['required']">Email is required</small>
+              <small class="error" *ngIf="validateForm.get('employee_email')?.errors?.['email']">Enter a valid email. </small>
+              <small class="error" *ngIf="validateForm.get('employee_email')?.errors?.['pattern']">Email (must contain '&#64;' and '.')</small>
+              <small class="error" *ngIf="validateForm.get('employee_email')?.errors?.['emailTaken']">Email already exists</small>
+            </div>
+          </div>
+  
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="employee_password">Password</label>
+            <input type="password" id="employee_password" placeholder="Password" formControlName="employee_password">
+            <div *ngIf="validateForm.get('password')?.invalid && validateForm.get('employee_password')?.touched">
+              <small class="error" *ngIf="validateForm.get('employee_password')?.errors?.['required']"> Password is required. </small>
+              <small class="error" *ngIf="validateForm.get('employee_password')?.errors?.['minlength']"> Minimum 6 characters required. </small>
+            </div>
+          </div>
+  
+          <button type="submit" [disabled]="validateForm.invalid">Login</button>
+          <!-- <p>Or <a routerLink="/register-user">Register now!</a></p> -->
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

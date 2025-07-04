@@ -1,0 +1,15 @@
+<div class="dashboard-container">
+    <h1 class="dashboard-title">Admin Dashboard</h1>
+    
+    <div class="cards-grid">
+      <div class="card" *ngFor="let item of dashboardData">
+        <div class="card-icon">
+          <i class="{{ item.icon }}"></i>  <!-- Icon (FontAwesome or Material) -->
+        </div>
+        <div class="card-content">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>

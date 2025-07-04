@@ -1,0 +1,59 @@
+<div class="tasks-container" *ngIf="orders.length > 0; else noTasks">
+    <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>User Address</th>
+          <th>User Phone</th>
+          <th>Service Date</th>
+          <th>Service Time</th>
+          <th>Booking Time</th>
+          <th>Order Location</th>
+          <th>Pay Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.user_name }}</td> 
+          <td>{{ order.user_address }}</td>
+          <td>{{ order.user_phoneno }}</td>
+          <td>{{ order.service_date }}</td>
+          <td>{{ order.service_time }}</td>
+          <td>{{ order.booking_time }}</td>
+          <td>{{ order.order_location }}</td>
+          <td>{{ order.pay_amount_to_emp }}</td>
+          <td>
+            <ng-container [ngSwitch]="order.order_status">
+              <ng-container *ngSwitchCase="'Pending'">
+                <button class="accept" (click)="updateStatus(order.order_id, 'accepted')">Accept</button>
+                <button class="reject" (click)="updateStatus(order.order_id, 'rejected')">Reject</button>
+              </ng-container>
+  
+              <ng-container *ngSwitchCase="'accepted'">
+                <button class="complete-order"
+                        [disabled]="!isOrderReadyToComplete(order.service_date, order.service_time)"
+                        (click)="completeOrder(order.order_id)">
+                  Complete Order
+                </button>
+              </ng-container>
+              
+  
+              <ng-container *ngSwitchDefault>
+                {{ order.order_status | titlecase }}
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br><br><br><br><br><br><br>
+
+  <ng-template #noTasks>
+    <br><br><br><br><br><br>
+  <p style="text-align: center; font-size: larger; font-weight: bold;">No tasks available.</p>
+  <br><br><br><br><br><br>
+
+  </ng-template>
+  

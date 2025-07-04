@@ -1,0 +1,39 @@
+<div *ngIf="userOrders.length === 0" class="no-orders-message">
+  <br><br><br><br><br><br>
+  <p style="text-align: center; font-size: larger; font-weight: bold;">No active services for you.</p>
+  <br><br><br><br><br><br>
+</div>
+<br>
+<div *ngFor="let order of userOrders" class="service-container">
+  <div class="service-image">
+    <img [src]="'http://localhost/api_homeservices/employee/' + getEmployeeImage(order.employee_id)" alt="Employee">
+  </div>
+
+  <div class="service-details">
+    <ul class="service-details">
+      <li><h2>{{ getEmployeeName(order.employee_id) }}</h2></li>
+      <li class="service-title">{{ getEmployeeServiceName(order.employee_id) }}</li>
+      <li><strong>Location:</strong> {{ order.order_location }}</li>
+      <li class="service-fee"><strong>Fee:</strong> ₹{{ order.order_total_amount }}</li>
+      <li><strong>Phone:</strong> {{ getEmployeePhoneNo(order.employee_id) }}</li>
+      <li><strong>Email:</strong> {{ getEmployeeEmail(order.employee_id) }}</li>
+      <li><strong>Emp Aadhar Number:</strong> {{ getEmployeeRating(order.employee_id) }}</li>
+      <li class="service-title" style="color: red; text-transform: capitalize;">Order Status: {{ order.order_status }}</li>
+
+      <ng-container *ngIf="order.order_status === 'completed'">
+        <button *ngIf="order.order_payment_status === 'upi'" 
+                class="proceed-btn upi" 
+                (click)="goToUpiPayment(order.order_id)">
+          Proceed with UPI
+        </button>
+      
+        <button *ngIf="order.order_payment_status === 'card'" 
+                class="proceed-btn card" 
+                (click)="goToCardPayment(order.order_id)">
+          Proceed with Card
+        </button>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+<br>

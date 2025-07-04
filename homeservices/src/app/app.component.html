@@ -1,0 +1,321 @@
+<!-- Top Strip -->
+<div *ngIf="!isUserLoggedIn && !isAdminLoggedIn && !isEmpLoggedIn">
+  <div class="top-strip">
+    <header class="main-header">
+      <h2 class="main-header"><small>.</small> HomeServices</h2>
+    </header>
+  </div>
+
+  <!-- Navigation Links (Below the Strip) -->
+  <nav class="nav-container">
+    <div class="nav-links">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/user-login" routerLinkActive="active">User Login</a>
+      <a routerLink="/register-user" routerLinkActive="active">User SignUp</a>
+      <a routerLink="/emp-login" routerLinkActive="active">Employee</a>
+      <a routerLink="/admin-login" routerLinkActive="active">Admin</a>
+    </div>
+  </nav>
+</div>
+
+
+
+
+
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<div *ngIf="isUserLoggedIn">
+  <div class="top-strip">
+    <header class="main-header">
+      <h2 class="main-header"><small>.</small> HomeServices</h2>
+    </header>
+  </div>
+
+  <!-- Navigation Links (Below the Strip) -->
+  <nav class="nav-container">
+    <div class="nav-links">
+      <a routerLink="/user-dashboard" routerLinkActive="active">Home</a>
+      <a routerLink="/user-wishlist" routerLinkActive="active">Wishlist</a>
+      <a routerLink="/user-bookings" routerLinkActive="active">Service Bookings</a>
+      <a routerLink="/user-history" routerLinkActive="active">Service History</a>
+      <a routerLink="/user-profile" routerLinkActive="active">Profile</a>
+      <a routerLink="/user-logout" routerLinkActive="active">Logout</a>
+    </div>
+  </nav>
+</div>
+
+
+<!----------------------------------------------------------------------------------------------------------->
+
+
+
+<div *ngIf="isAdminLoggedIn">
+  <div class="top-strip" style="background-color: black;">
+    <header class="main-header">
+      <h2 class="main-header" style="color: white;"><small>.</small> HomeServices</h2>
+    </header>
+  </div>
+
+  <!-- Navigation Links (Below the Strip) -->
+  <nav class="nav-container" style="background-color: gray;">
+    <div class="nav-links-admin" style="color: black;">
+      <a routerLink="/admin-dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/all-users" routerLinkActive="active">All Users</a>
+      <a routerLink="/all-emp" routerLinkActive="active">All Employees</a>
+      <a routerLink="/register-emp" routerLinkActive="active">Employee Registration</a>
+      <a routerLink="/all-active-bookings" routerLinkActive="active">Active Bookings</a>
+      <a routerLink="/emp-payment-admin" routerLinkActive="active">Employee Payment</a>
+      <a routerLink="/all-services-history" routerLinkActive="active">Service History</a>
+      <a routerLink="/admin-profile" routerLinkActive="active">Profile</a>
+      <a routerLink="/admin-logout" routerLinkActive="active">Logout</a>
+    </div>
+  </nav>
+</div>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+
+<div *ngIf="isEmpLoggedIn">
+  <div class="top-strip" style="background-color: #0b6bd1;">
+    <header class="main-header">
+      <h2 class="main-header" style="color: white;"><small>.</small> HomeServices</h2>
+    </header>
+  </div>
+
+  <!-- Navigation Links (Below the Strip) -->
+  <nav class="nav-container" style="background-color: gray;">
+    <div class="nav-links">
+      <a routerLink="/emp-dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/emp-tasks" routerLinkActive="active">My Tasks</a>
+      <a routerLink="/emp-history" routerLinkActive="active">Service History</a>
+      <a routerLink="/emp-reject" routerLinkActive="active">Rejected Services</a>
+      <a routerLink="/emp-await-pay" routerLinkActive="active">Awaiting Payment</a>
+      <a routerLink="/emp-profile" routerLinkActive="active">Profile</a>
+      <a routerLink="/emp-logout" routerLinkActive="active">Logout</a>
+    </div>
+  </nav>
+</div>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- Content -->
+<router-outlet></router-outlet>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+
+
+<div *ngIf="!isUserLoggedIn && !isAdminLoggedIn && !isEmpLoggedIn">
+  <!-- Footer -->
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand Info -->
+      <div class="footer-brand">
+        <h4>HomeServices</h4>
+        <p>Connecting you with trusted service providers for your home needs.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/user-login">User Login</a></li>
+          <li><a routerLink="/register-user">User SignUp</a></li>
+          <li><a routerLink="/emp-login">Employee</a></li>
+          <li><a routerLink="/admin-login">Admin</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> support&#64;homeservices.com</p>
+        <p><i class="fas fa-phone"></i> +91 80803 22409</p>
+        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 HomeServices By Samiksha & Harsh. All rights reserved.</p>
+      <p><a routerLink="/privacy-policy">Privacy Policy</a> | <a routerLink="/terms">Terms & Conditions</a></p>
+    </div>
+  </footer>
+</div>
+
+
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<div *ngIf="isUserLoggedIn">
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand Info -->
+      <div class="footer-brand">
+        <h4>HomeServices</h4>
+        <p>Connecting you with trusted service providers for your home needs.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/user-dashboard">Home</a></li>
+          <li><a routerLink="/user-wishlist">Wishlist</a></li>
+          <li><a routerLink="/user-bookings">Service Bookings</a></li>
+          <li><a routerLink="/user-history">Service History</a></li>
+          <li><a routerLink="/user-profile">Profile</a></li>
+
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> support&#64;homeservices.com</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 HomeServices By Samiksha & Harsh. All rights reserved.</p>
+      <p><a routerLink="/privacy-policy">Privacy Policy</a> | <a routerLink="/terms">Terms & Conditions</a></p>
+    </div>
+  </footer>
+</div>
+
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<div *ngIf="isAdminLoggedIn">
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand Info -->
+      <div class="footer-brand">
+        <h4>HomeServices</h4>
+        <p>Connecting you with trusted service providers for your home needs.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/admin-dashboard">Dashboard</a></li>
+          <li><a routerLink="/all-users">All Users</a></li>
+          <li><a routerLink="/all-emp">All Employees</a></li>
+          <li><a routerLink="/register-emp">Employee Registration</a></li>
+          <li><a routerLink="/all-active-bookings">Active Bookings</a></li>
+          <li><a routerLink="/emp-payment-admin">Employee Payment</a></li>
+          <li><a routerLink="/all-services-history">Service History</a></li>
+          <li><a routerLink="/admin-profile">Profile</a></li>
+          <li><a routerLink="/admin-logout">Logout</a></li>
+
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> support&#64;homeservices.com</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 HomeServices By Samiksha & Harsh. All rights reserved.</p>
+      <p><a routerLink="/privacy-policy">Privacy Policy</a> | <a routerLink="/terms">Terms & Conditions</a></p>
+    </div>
+  </footer>
+</div>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<div *ngIf="isEmpLoggedIn">
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand Info -->
+      <div class="footer-brand">
+        <h4>HomeServices</h4>
+        <p>Connecting you with trusted service providers for your home needs.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/emp-dashboard">Dashboard</a></li>
+          <li><a routerLink="/emp-tasks">My Tasks</a></li>
+          <li><a routerLink="/emp-history">Service History</a></li>
+          <li><a routerLink="/emp-reject">Rejected Services</a></li>
+          <li><a routerLink="/emp-await-pay">Awaiting Payment</a></li>
+          <li><a routerLink="/emp-profile">Profile</a></li>
+          <li><a routerLink="/emp-logout">Logout</a></li>
+        </ul>
+        
+      </div>
+
+      <!-- Contact Information -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> support&#64;homeservices.com</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 HomeServices By Samiksha & Harsh. All rights reserved.</p>
+      <p><a routerLink="/privacy-policy">Privacy Policy</a> | <a routerLink="/terms">Terms & Conditions</a></p>
+    </div>
+  </footer>
+</div>

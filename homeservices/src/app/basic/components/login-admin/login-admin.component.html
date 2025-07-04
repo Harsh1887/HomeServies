@@ -1,0 +1,38 @@
+<div class="bg">
+    <div class="parent">
+      <div class="child">
+        <h1>Admin Login</h1>
+  
+        <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+     
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="E-mail" formControlName="email">
+            <div *ngIf="validateForm.get('email')?.invalid && validateForm.get('email')?.touched">
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['required']">Email is required</small>
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['email']">Enter a valid email. </small>
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['pattern']">Email (must contain '&#64;' and '.')</small>
+              <small class="error" *ngIf="validateForm.get('email')?.errors?.['emailTaken']">Email already exists</small>
+            </div>
+          </div>
+  
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" formControlName="password">
+            <div *ngIf="validateForm.get('password')?.invalid && validateForm.get('password')?.touched">
+              <small class="error" *ngIf="validateForm.get('password')?.errors?.['required']"> Password is required. </small>
+              <small class="error" *ngIf="validateForm.get('password')?.errors?.['minlength']"> Minimum 6 characters required. </small>
+              <small class="error" *ngIf="validateForm.get('password')?.errors?.['pattern']"> Password must contain uppercase, lowercase, number, and special character. </small>
+            </div>
+          </div>
+  
+          <button type="submit" [disabled]="validateForm.invalid">Login</button>
+          <!-- <p>Or <a routerLink="/register-user">Register now!</a></p> -->
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

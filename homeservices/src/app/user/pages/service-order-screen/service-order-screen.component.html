@@ -1,0 +1,74 @@
+<div class="service-container" *ngIf="employee">
+  <!-- Employee Image -->
+  <div class="service-img">
+    <img [src]="'http://localhost/api_homeservices/employee/' + employee.employee_image"
+      alt="{{ employee.employee_name }}">
+  </div>
+
+  <!-- Service Details -->
+  <div class="service-details">
+    <h2>{{ employee.employee_name }}</h2>
+    <p class="service-category">{{ employee.employee_service_name }}</p>
+    <p><strong>Location:</strong> {{ employee.employee_location }}</p>
+    <p><strong>Experience:</strong> {{ employee.employee_experience }} years</p>
+    <p><strong>Description:</strong> {{ employee.employee_desc }}</p>
+
+    <p><strong>Emp Aadhar No:</strong> {{ employee.emp_aadhar_number }}</p>
+    <p><strong>Fee:</strong> ₹{{ employee.employee_service_fee }}</p>
+
+    <!-- Address Field (Editable) -->
+    <div class="address-section">
+      <label for="user-address">Your Address:</label>
+      <input type="text" id="user-address" [(ngModel)]="user_address" placeholder="Enter your address">
+    </div>
+
+
+
+    <div class="datetime-section">
+      <label for="service-date">Select Service Date:</label>
+      <input
+        type="date"
+        id="service-date"
+        [(ngModel)]="serviceDate"
+        [min]="minDate"
+        [max]="maxDate"
+        name="serviceDate"
+      />
+    
+      <label for="service-time">Select Service Time:</label>
+      <select
+        id="service-time"
+        [(ngModel)]="serviceTime"
+        name="serviceTime"
+      >
+        <option value="" disabled selected>Select Time</option>
+        <option *ngFor="let time of availableTimes" [value]="time">
+          {{ time }}
+        </option>
+      </select>
+    </div>
+    
+    
+    
+
+    <!-- Book Now Button -->
+    <button class="book-btn" (click)="confirmBooking()">Book Now</button>
+  </div>
+</div>
+
+<!-- Booking Confirmation Popup -->
+<div class="confirmation-popup" *ngIf="showConfirmation">
+  <div class="popup-content">
+    <h3>Confirm Booking</h3>
+    <p><strong>Service:</strong> {{ employee.employee_service_name }}</p>
+    <p><strong>Date:</strong> {{ serviceDate }}</p>
+    <p><strong>Time:</strong> {{ serviceTime }}</p>
+    <p><strong>Address:</strong> {{ currentUser.user_address! }}</p>
+    <p><strong>Total Fee:</strong> ₹{{ employee.employee_service_fee }}</p>
+
+    <div class="popup-buttons">
+      <button class="confirm-btn" (click)="confirmBooking()">Confirm</button>
+      <button class="cancel-btn" (click)="showConfirmation = false">Cancel</button>
+    </div>
+  </div>
+</div>

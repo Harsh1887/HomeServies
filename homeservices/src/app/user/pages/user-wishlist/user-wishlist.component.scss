@@ -1,0 +1,167 @@
+body {
+    background-color: #f4f6f9c5; /* Light Gray */
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+  }
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 400px; // Adjust height as needed
+    overflow: hidden;
+  }
+  
+  .dashboard-container{
+    align-items: center;
+  }
+  .hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Ensures the image stretches proportionally without distortion
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  
+  /* General container styling */
+  .home-container {
+    // background-color: #f4f6f9c5; /* Light Gray */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styling */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .search-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: -30px;
+    padding: 20px;
+    background: #f4a261;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-right: auto;
+  }
+  
+  .fa-bookmark {
+    font-size: 30px; /* Change to your desired size */
+    color: #264653; /* Optional: Change color */
+  }
+  
+  
+  /* Search input */
+  .search-filter input {
+    width: 250px;
+    padding: 10px;
+  
+    border: 1px solid #f4a261;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Dropdown filter */
+  .search-filter select {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #f4a261;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  
+  .employee-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures 3 per row */
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 20px;
+  }
+  
+  .employee-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .employee-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  
+  /* Profile Image */
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  /* Service and details */
+  .service {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .employee-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Book Now button */
+  button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #218838;
+  }
+  
+  /* No data message */
+  .no-data {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+  }
+  

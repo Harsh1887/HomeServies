@@ -1,0 +1,19 @@
+<div class="employee-dashboard">
+    <div class="dashboard-container">
+        <br><br>
+        <h1 class="dashboard-title">Employee Dashboard</h1>
+        <br>
+        <div class="cards-grid">
+            <div class="card" *ngFor="let item of dashboardData">
+                <div class="card-icon">
+                    <i class="{{ item.icon }}"></i>
+                </div>
+                <div class="card-content">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.value }}</p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+</div>

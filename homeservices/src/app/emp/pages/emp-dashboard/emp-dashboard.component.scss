@@ -1,0 +1,91 @@
+.employee-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f4f4f4;
+
+    .profile-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+        margin-bottom: 20px;
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .employee-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .employee-designation {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #444;
+            margin: 5px 0;
+        }
+    }
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1000px;
+
+    .dashboard-title {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 10px;
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .card-icon {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                color: #007bff;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #007bff;
+            }
+        }
+    }
+}

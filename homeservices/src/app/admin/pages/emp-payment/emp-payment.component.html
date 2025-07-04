@@ -1,0 +1,54 @@
+<div class="tasks-container" *ngIf="orders.length > 0; else noTasks">
+    <table>
+      <thead>
+        <tr>
+          <th>User Id</th>
+          <th>Emp Id</th>
+          <th>User Address</th>
+          <th>User Phone</th>
+          <th>Service Date</th>
+          <th>Service Time</th>
+          <th>Booking Time</th>
+          <th>Order Location</th>
+          <th>Pay Amount</th>
+          <th>Status</th>
+          <th>Pay EMP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.user_id }}</td> 
+          <td>{{ order.employee_id }}</td> 
+          <td>{{ order.user_address }}</td>
+          <td>{{ order.user_phoneno }}</td>
+          <td>{{ order.service_date }}</td>
+          <td>{{ order.service_time }}</td>
+          <td>{{ order.booking_time }}</td>
+          <td>{{ order.order_location }}</td>
+          <td>{{ order.pay_amount_to_emp }}</td>
+          <td>
+            <span [ngClass]="{
+              'pending': order.order_status === 'Pending',
+              'accepted': order.order_status === 'Accepted',
+              'completed': order.order_status === 'Completed'
+            }">
+              {{ order.order_status }}
+            </span>
+          </td>
+          <td>
+            <button (click)="confirmPayment(order)" [disabled]="order.emp_payment_status == '1'">
+              Pay
+            </button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #noTasks>
+    <div style="text-align: center; padding: 200px 0;">
+      <p style="font-size: larger; font-weight: bold;">No tasks available.</p>
+    </div>
+  </ng-template>
+  

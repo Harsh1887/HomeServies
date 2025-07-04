@@ -1,0 +1,29 @@
+.payment-screen {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .payment-screen h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .payment-screen p {
+    font-size: 18px;
+  }
+  
+  .payment-screen button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payment-screen button:hover {
+    background-color: #45a049;
+  }
+  

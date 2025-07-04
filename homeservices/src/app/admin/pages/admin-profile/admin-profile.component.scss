@@ -1,0 +1,66 @@
+/* Container for the profile section */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  /* Title styling */
+  .profile-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  /* Admin details */
+  .admin-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Admin details labels */
+  .admin-details label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Admin details values */
+  .admin-details p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button Styling */
+  .edit-profile-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-profile-btn:hover {
+    background-color: #0056b3;
+  }
+  

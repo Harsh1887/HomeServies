@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+  <div class="hero-section">
+    <img src="http://localhost/api_homeservices/images/userhome1.png" alt="Travel Banner" class="hero-bg">
+  </div>
+
+  <div class="search-filter">
+    <input type="text" placeholder="Search for employees" (input)="updateSearchQuery($event)">
+    
+    <select (change)="updateSelectedService($event)">
+      <option value="">All Services</option>
+      <option *ngFor="let service of uniqueServices" [value]="service">{{ service }}</option>
+    </select>
+    
+    <select (change)="updateSelectedLocation($event)">
+      <option value="">All Locations</option>
+      <option *ngFor="let location of uniqueLocations" [value]="location">{{ location }}</option>
+    </select>
+  </div>
+
+<div class="employee-list">
+  <div *ngFor="let employee of filteredEmployees()" class="employee-card">
+    <img *ngIf="employee.employee_image" 
+      [src]="'http://localhost/api_homeservices/employee/' + employee.employee_image" 
+      alt="Profile" class="profile-img">
+    <div class="card-content">
+      <h3>{{ employee.employee_name }}</h3>
+      <p class="service">{{ employee.employee_service_name }}</p>
+      <p><strong>Location:</strong> {{ employee.employee_location }}</p>
+      <p><strong>Experience:</strong> {{ employee.employee_experience }} years</p>
+      <p><strong>Emp Aadhar No:</strong> {{ employee.emp_aadhar_number }}</p>
+      <p><strong>Service Fee:</strong> ₹{{ employee.employee_service_fee }}</p>
+      
+      <button (click)="viewServiceDetails(employee)">View</button>
+      <span style="margin-left: 15px;"></span>
+
+      <i
+      class="fa"
+      [ngClass]="favoriteStatus.get(employee.employee_id) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark'"
+      (click)="toggleFavorite(employee.employee_id)"
+      style="cursor: pointer; font-size: 24px; margin-left: 10px;">
+    </i>
+    </div>
+  </div>
+</div>
+
+</div>

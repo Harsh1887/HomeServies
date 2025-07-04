@@ -1,0 +1,24 @@
+<div *ngIf="empData; else noData">
+    <h2>Employee Profile</h2>
+    <div class="profile-card">
+      <img [src]="'http://localhost/api_homeservices/employee/' + empData.employee_image" 
+      alt="Profile" class="profile-img"/>
+  
+      <div class="details">
+        <p><strong>ID:</strong> {{ empData.employee_id }}</p>
+        <p><strong>Name:</strong> {{ empData.employee_name }}</p>
+        <p><strong>Email:</strong> {{ empData.employee_email }}</p>
+        <p><strong>Phone:</strong> {{ empData.employee_phoneno }}</p>
+        <p><strong>Aadhar Number:</strong> {{ empData.emp_aadhar_number }}</p>
+        <p><strong>Service Name:</strong> {{ empData.employee_service_name }}</p>
+        <p><strong>Experience:</strong> {{ empData.employee_experience }}</p>
+        <p><strong>Location:</strong> {{ empData.employee_location }}</p>
+        <p><strong>Service Fee:</strong> ₹{{ empData.employee_service_fee * 0.8 | number:'1.0-2' }}</p>
+    </div>
+    </div>
+  </div>
+  
+  <ng-template #noData>
+    <p>No employee data available.</p>
+  </ng-template>
+  

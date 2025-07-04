@@ -1,0 +1,83 @@
+<div class="register-container">
+  <h2>Register Employee</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <!-- Aadhar Number -->
+    <input type="text" formControlName="emp_aadhar_number" placeholder="Aadhar Number" />
+    <div *ngIf="f['emp_aadhar_number'].touched && f['emp_aadhar_number'].invalid" class="error">
+      <div *ngIf="f['emp_aadhar_number'].errors?.['required']">Aadhar number is required.</div>
+      <div *ngIf="f['emp_aadhar_number'].errors?.['pattern']">Aadhar must be 12 digits and should not start with 0 or 1.</div>
+    </div>
+
+    <!-- Name -->
+    <input type="text" formControlName="employee_name" placeholder="Full Name" />
+    <div *ngIf="f['employee_name'].touched && f['employee_name'].invalid" class="error">
+      <div *ngIf="f['employee_name'].errors?.['required']">Name is required.</div>
+      <div *ngIf="f['employee_name'].errors?.['minlength']">Name must be at least 2 characters.</div>
+    </div>
+
+    <!-- Service Name -->
+    <input type="text" formControlName="employee_service_name" placeholder="Service Name" />
+    <div *ngIf="f['employee_service_name'].touched && f['employee_service_name'].invalid" class="error">
+      Service name is required.
+    </div>
+
+    <!-- Image -->
+    <input type="file" (change)="onFileChange($event)" />
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="Preview" />
+    <div *ngIf="f['employee_image'].touched && f['employee_image'].invalid" class="error">
+      Image is required.
+    </div>
+
+    <!-- Phone -->
+    <input type="text" formControlName="employee_phoneno" placeholder="Phone Number" />
+    <div *ngIf="f['employee_phoneno'].touched && f['employee_phoneno'].invalid" class="error">
+      <div *ngIf="f['employee_phoneno'].errors?.['required']">Phone number is required.</div>
+      <div *ngIf="f['employee_phoneno'].errors?.['pattern']">Phone number must be 10 digits.</div>
+    </div>
+
+    <!-- Email -->
+    <input type="email" formControlName="employee_email" placeholder="Email" />
+    <div *ngIf="f['employee_email'].touched && f['employee_email'].invalid" class="error">
+      <div *ngIf="f['employee_email'].errors?.['required']">Email is required.</div>
+      <div *ngIf="f['employee_email'].errors?.['email']">Enter a valid email.</div>
+    </div>
+
+    <!-- Password -->
+    <input type="password" formControlName="employee_password" placeholder="Password" />
+    <div *ngIf="f['employee_password'].touched && f['employee_password'].invalid" class="error">
+      <div *ngIf="f['employee_password'].errors?.['required']">Password is required.</div>
+      <div *ngIf="f['employee_password'].errors?.['minlength']">Minimum 6 characters required.</div>
+    </div>
+
+    <!-- Description -->
+    <input type="text" formControlName="employee_desc" placeholder="Description" />
+    <div *ngIf="f['employee_desc'].touched && f['employee_desc'].invalid" class="error">
+      <div *ngIf="f['employee_desc'].errors?.['required']">Description is required.</div>
+      <div *ngIf="f['employee_desc'].errors?.['minlength']">Description must be at least 10 characters.</div>
+    </div>
+
+    <!-- Location -->
+    <input type="text" formControlName="employee_location" placeholder="Location" />
+    <div *ngIf="f['employee_location'].touched && f['employee_location'].invalid" class="error">
+      Location is required.
+    </div>
+
+    <!-- Experience -->
+    <input type="number" formControlName="employee_experience" placeholder="Experience (years)" />
+    <div *ngIf="f['employee_experience'].touched && f['employee_experience'].invalid" class="error">
+      <div *ngIf="f['employee_experience'].errors?.['required']">Experience is required.</div>
+      <div *ngIf="f['employee_experience'].errors?.['min']">Experience must be 0 or more.</div>
+    </div>
+
+    <!-- Service Fee -->
+    <input type="number" formControlName="employee_service_fee" placeholder="Service Fee" />
+    <div *ngIf="f['employee_service_fee'].touched && f['employee_service_fee'].invalid" class="error">
+      <div *ngIf="f['employee_service_fee'].errors?.['required']">Service fee is required.</div>
+      <div *ngIf="f['employee_service_fee'].errors?.['min']">Fee must be more than 0.</div>
+      <div *ngIf="f['employee_service_fee'].errors?.['max']">Fee must be up to 2000..</div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+</div>
